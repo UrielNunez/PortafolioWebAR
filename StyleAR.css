@@ -22,10 +22,6 @@ body {
 
 
   perspective: 1000px; /* da profundidad */
-
-  transform-style: preserve-3d;
-  will-change: transform;
-  transition: transform 0.2s ease-out; /* suaviza el movimiento */
 }
 
 /* La tarjeta */
@@ -40,7 +36,9 @@ body {
   border-radius: 45px;
   box-shadow: 2px 2px 19px;
 
-  
+   transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 0.2s ease-out; /* suaviza el movimiento */
   
 }
 .content {
@@ -50,6 +48,7 @@ body {
   flex-direction: column;
   align-items: center; /* agrega esto para centrar internamente */
   justify-content: center;
+
 
 }
 

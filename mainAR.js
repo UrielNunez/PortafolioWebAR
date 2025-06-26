@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     //start();
-    const card = document.querySelector('.content');
+    const card = document.querySelector('.card');
     const gyroPermissionDiv = document.getElementById('gyro-permission');
     const btnAllow = document.getElementById('btn-allow-gyro');
 
