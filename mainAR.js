@@ -125,9 +125,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function handleOrientation(event) {
         const { beta, gamma } = event;
-        const rotateX = Math.min(Math.max(beta - 50, -30), 30);
-        const rotateY = Math.min(Math.max(gamma, -30), 30);
-        card.style.transform = `rotateX(${rotateX * -0.5}deg) rotateY(${rotateY * 0.5}deg)`;
+        const rotateX = Math.min(Math.max(beta - 50, -60), 60);
+        const rotateY = Math.min(Math.max(gamma, -60), 60);
+        card.style.transform = `rotateX(${rotateX * -1.5}deg) rotateY(${rotateY * 1.5}deg)`;
     }
 
     function enableGyro() {
