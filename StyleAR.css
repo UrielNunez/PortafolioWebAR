@@ -1,0 +1,462 @@
+@import url('https://fonts.googleapis.com/css2?family=Denk+One&family=Jersey+10&family=Matemasie&family=Noto+Sans+JP:wght@100..900&family=Oswald:wght@200..700&display=swap');
+
+html,
+body {
+  position: relative;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Contenedor que centra todo en pantalla */
+#intro-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background: #212121;
+  position: relative;
+  z-index: 10;
+
+
+  perspective: 1000px; /* da profundidad */
+}
+
+/* La tarjeta */
+.card {
+  background-color: black;
+  width: 350px;
+  height: 400px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 45px;
+  box-shadow: 2px 2px 19px;
+
+  
+  
+}
+.content {
+  width: 300px;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* agrega esto para centrar internamente */
+  justify-content: center;
+
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 0.2s ease-out; /* suaviza el movimiento */
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  z-index: -19;
+  width: 377px;
+  height: 427px;
+  margin: auto;
+  background: rgb(4, 0, 255);
+  background: linear-gradient(135deg, rgba(4, 0, 255, 1) 0%, rgba(136, 0, 255, 1) 35%, rgba(209, 0, 255, 1) 100%);
+  border-radius: 45px;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  z-index: -19;
+  width: 377px;
+  height: 427px;
+  margin: auto;
+  background: rgb(4, 0, 255);
+  background: linear-gradient(135deg, rgba(4, 0, 255, 1) 0%, rgba(136, 0, 255, 1) 35%, rgba(209, 0, 255, 1) 100%);
+  border-radius: 45px;
+  filter: blur(20px);
+  transition: 2s;
+}
+
+.card:hover::after {
+  animation: cardafter 2.5s infinite forwards;
+}
+
+@keyframes cardafter {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Texto */
+.heading {
+  font-size: 38px;
+  font-weight: bold;
+  margin: 40px 0 40px 0;
+  text-align: center;
+  width: 100%;
+  color: white;
+  transform: translateZ(50px);
+}
+
+.subtext {
+  font-size: 18px;
+  margin: 40px 0 40px 0;
+  text-align: center;
+  width: 100%;
+  color: white;
+  transform: translateZ(40px);
+}
+
+.powered {
+  font-size: 14px;
+  color: #aaa;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  width: 100%;
+  transform: translateZ(30px);
+}
+
+/* Botón */
+#launch-btn {
+  padding: 15px 35px;
+  font-weight: bold;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+  background: linear-gradient(135deg, rgba(4, 0, 255, 1), rgba(209, 0, 255, 1));
+  box-shadow: 0 0 15px rgba(209, 0, 255, 0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 2;
+  align-self: center;
+}
+
+#launch-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(209, 0, 255, 0.8);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+#scanning {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: transparent;
+  z-index: 2;
+}
+
+@media (min-aspect-ratio: 1/1) {
+  #scanning .inner {
+    width: 50vh;
+    height: 50vh;
+  }
+}
+
+@media (max-aspect-ratio: 1/1) {
+  #scanning .inner {
+    width: 80vw;
+    height: 80vw;
+  }
+}
+
+#scanning .inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  background:
+    linear-gradient(to right, white 10px, transparent 10px) 0 0,
+    linear-gradient(to right, white 10px, transparent 10px) 0 100%,
+    linear-gradient(to left, white 10px, transparent 10px) 100% 0,
+    linear-gradient(to left, white 10px, transparent 10px) 100% 100%,
+    linear-gradient(to bottom, white 10px, transparent 10px) 0 0,
+    linear-gradient(to bottom, white 10px, transparent 10px) 100% 0,
+    linear-gradient(to top, white 10px, transparent 10px) 0 100%,
+    linear-gradient(to top, white 10px, transparent 10px) 100% 100%;
+  background-repeat: no-repeat;
+  background-size: 40px 40px;
+}
+
+#scanning.hidden {
+  display: none;
+}
+
+#scanning img {
+  opacity: 0.6;
+  width: 90%;
+  align-self: center;
+}
+
+#scanning .inner .scanline {
+  position: absolute;
+  width: 100%;
+  height: 10px;
+  background: white;
+  animation: move 2s linear infinite;
+}
+
+@keyframes move {
+
+  0%,
+  100% {
+    top: 0%
+  }
+
+  50% {
+    top: calc(100% - 10px)
+  }
+}
+
+
+#contenido-Tarjeta {
+  position: relative;
+  /* Necesario para posicionar hijos absolutamente */
+  width: 1900px;
+  height: 1500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+}
+
+/*Texto principal*/
+#Texto {
+  position: absolute;
+  top: -250px;
+  /* Puedes ajustar este valor */
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 10;
+  /* Asegura que esté por encima del contenido */
+  background: transparent;
+  /* O ponle fondo si lo deseas */
+}
+
+#Texto h1,
+#Texto h2 {
+  margin: 0;
+  padding: 0;
+}
+
+#Texto h1 {
+  font-family: 'Denk One', sans-serif;
+  font-size: 78px;
+  color: white;
+}
+
+#Texto h2 {
+  font-family: 'Denk One', sans-serif;
+  font-size: 40px;
+  color: white;
+}
+
+/* Top: puede ser más ancho si lo deseas */
+#ar-Top,
+#player {
+  width: 960px;
+  height: 550px;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: visible;
+  position: relative;
+  /* Necesario para que los botones se ubiquen dentro */
+}
+
+
+.boton-wrapper {
+  position: relative;
+  width: 960px;
+  height: 0px;
+  /* sin altura visual */
+
+}
+
+/* Botón izquierdo y derecho*/
+#btn-left,
+#btn-right {
+  all: unset;
+  position: absolute;
+  padding: 10px 15px;
+  background: transparent;
+  border: none;
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+#btn-left svg {
+  fill: black
+}
+
+#btn-right svg {
+  fill: black;
+}
+
+/* Posiciones específicas arriba/abajo/izquierda/derecha */
+#btn-left {
+  transform: translate(-300px, 150px);
+}
+
+#btn-right {
+  right: 0;
+  transform: translate(300px, 150px);
+}
+
+/* Animación al hacer clic */
+#btn-left:active {
+  transform: translate(-350px, 150px);
+  /* left */
+}
+
+#btn-right:active {
+  transform: translate(350px, 150px);
+  /* right */
+}
+
+#btn-left:hover,
+#btn-right:hover {
+  color: rgb(170, 156, 156);
+  /* Cambia el color del fill en hover */
+}
+
+/* fila que contiene left y right */
+#fila-horizontal {
+  display: flex;
+  justify-content: space-evenly;
+  /* centrado más uniforme */
+  align-items: center;
+  width: 100%;
+  /* para que use todo el ancho disponible */
+  flex: 1;
+}
+
+/* Left: 100x50 */
+#ar-Left {
+  width: 650px;
+  height: 350px;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: visible;
+
+  /*  mueve a la izquierda (-X) y arriba (-Y) */
+  transform: translate(-500px, -250px);
+}
+
+.image {
+
+  width: 550px;
+  max-width: none;
+  /* Se establece un ancho máximo para evitar que la imagen se desborde de su contenedor */
+  border-radius: 55% 45% 55% 45%;
+  overflow: hidden;
+  animation: imgFloat 7s ease-in-out infinite;
+  margin-left: -30px;
+}
+
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@keyframes imgFloat {
+  50% {
+    transform: translateY(20px);
+    border-radius: 45% 55% 45% 55%;
+  }
+}
+
+#texto-Name {
+  width: 850px;
+  height: 100px;
+  transform: translate(60px);
+}
+
+#texto-Name span {
+  font-family: 'Denk One', sans-serif;
+  font-size: 78px;
+  margin: 0;
+  color: white;
+}
+
+#texto-Name .typedExp {
+  font-family: 'Denk One', sans-serif;
+  font-size: 58px;
+  margin: 0;
+  color: white;
+}
+
+
+/* Right: 50x100 */
+#ar-Right {
+  width: 350px;
+  height: 650px;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: visible;
+
+  /*  mueve a la izquierda (X) y arriba (-Y) */
+  transform: translate(200px, -250px);
+}
+
+.social-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* Alinea a la izquierda */
+  gap: 50px;
+  /* Espacio entre iconos */
+  margin-left: -225px;
+  /* Más a la izquierda */
+}
+
+.social-column img {
+  width: 100px;
+  /* Tamaño más grande */
+  height: 100px;
+  transition: transform 0.3s ease;
+}
+
+.social-column img:hover {
+  transform: scale(1.2);
+}
