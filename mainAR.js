@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Botón de inicio
     document.getElementById('launch-btn').addEventListener('click', () => {
         // Oculta la tarjeta de bienvenida
-        document.getElementById('intro-card').style.display = 'none';
+        document.getElementById('intro-wrapper').style.display = 'none';
         // Muestra el contenedor de AR
         document.getElementById('contenido-Tarjeta').style.display = 'block';
         // Inicia la experiencia WebAR
