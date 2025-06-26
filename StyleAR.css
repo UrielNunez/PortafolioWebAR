@@ -22,6 +22,10 @@ body {
 
 
   perspective: 1000px; /* da profundidad */
+
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 0.2s ease-out; /* suaviza el movimiento */
 }
 
 /* La tarjeta */
@@ -47,9 +51,6 @@ body {
   align-items: center; /* agrega esto para centrar internamente */
   justify-content: center;
 
-  transform-style: preserve-3d;
-  will-change: transform;
-  transition: transform 0.2s ease-out; /* suaviza el movimiento */
 }
 
 .card::before {
