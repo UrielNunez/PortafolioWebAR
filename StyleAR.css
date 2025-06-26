@@ -105,6 +105,7 @@ body {
   width: 100%;
   color: white;
   transform: translateZ(50px);
+  transform: translateY(10px);
 }
 
 .subtext {
@@ -114,6 +115,7 @@ body {
   width: 100%;
   color: white;
   transform: translateZ(40px);
+  transform: translateY(10px);
 }
 
 .powered {
@@ -124,6 +126,7 @@ body {
   text-align: center;
   width: 100%;
   transform: translateZ(30px);
+  transform: translateY(10px)
 }
 
 /* Botón */
