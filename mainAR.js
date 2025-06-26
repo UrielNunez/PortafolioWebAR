@@ -45,6 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('launch-btn').addEventListener('click', () => {
         // Oculta la tarjeta de bienvenida
         document.getElementById('intro-wrapper').style.display = 'none';
+        document.getElementById('gyro-permission').style.display = 'none';
         // Muestra el contenedor de AR
         document.getElementById('contenido-Tarjeta').style.display = 'block';
         // Inicia la experiencia WebAR
@@ -57,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // initialize MindAR 
         const mindarThree = new MindARThree({
             container: document.body,
-            imageTargetSrc: '../Targets/ImageTarget.mind',
+            imageTargetSrc: './Targets/ImageTarget.mind',
             uiScanning: "#scanning",
             uiLoading: "no"
         });
